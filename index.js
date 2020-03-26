@@ -39,7 +39,22 @@ class Airplane {
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
-
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+//   this.stomach = [];
+// }
+// Person.prototype.eat = function(someFood){
+//   if(this.stomach.length < 10){
+//     this.stomach.push(someFood);
+//   }
+// }
+// Person.prototype.poop = function(){
+//   this.stomach = [];
+// }
+// Person.prototype.toString = function(){
+//   return `${this.name} and ${this.age}`;
+// }
 class Person {
 
 }
@@ -57,7 +72,36 @@ class Person {
     - A car which runs out of `fuel` while driving can't drive any more distance:
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
-
+// function Car(model, milesPerGallon) {
+//   this.model = model;
+//   this.milesPerGallon = milesPerGallon;
+//   this.tank = 0;
+//   this.odometer = 0;
+// }
+// Car.prototype.fill = function(gallons){
+//   this.tank += gallons;
+// }
+// /*Car.prototype.drive = function(distance){
+//   let breakdown = distance - this.milesPerGallon*this.tank;
+//   this.odometer += distance;
+//   this.tank -= (distance/this.milesPerGallon);
+//   if(this.tank < 0){
+//     this.odometer -= breakdown;
+//     this.tank = 0;
+//     return `I ran out of fuel at ${breakdown} miles!`;
+//   }
+// }*/
+// Car.prototype.drive = function(distance){// d = T(m/g) & m = gd/T
+//   if(distance >= this.tank*this.milesPerGallon){
+//     let breakdown = distance - this.tank*this.milesPerGallon;
+//     this.odometer += distance - breakdown;
+//     this.tank = 0;
+//     return `I ran out of fuel at ${this.odometer} miles!`;
+//   } else {
+//     this.odometer += distance;
+//     this.tank -= distance/this.milesPerGallon;
+//   }
+// }
 class Car {
 
 }
