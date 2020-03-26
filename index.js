@@ -188,13 +188,17 @@ class Instructor extends Lambdasian{
     //console.log(this.speak());
     //console.log(this.studentPerformance());
   }
-  studentPerformance(){
+  studentPerformance(student){
+    let adjustment = Math.round(Math.random()*10);
     //console.log((Math.floor(Math.random()*10))%2);
     if (Math.floor(Math.random()*10)%2){
       //console.log('add to the score');
-
+      student.grade += adjustment;
+      return `${student.name} got some extra points, grade is now ${student.grade}`;
     } else {
       //console.log('subtract from the score');
+      student.grade -= adjustment;
+      return `${student.name} lost some points, grade is now ${student.grade}`;
     }
   }
   demo(subject){
@@ -241,6 +245,9 @@ class Student extends Lambdasian{
   }
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`
+  }
+  stateGrade(){
+    return `My grade is ${this.grade}!`;
   }
 }
 
@@ -293,6 +300,27 @@ const passingStudent = new Student({
   grade : 85
 })
 
+const awesoneTeacher = new Instructor({
+  name : 'Cassidy',
+  age : 41,
+  location : 'Michigan',
+  specialty : 'large dams',
+  favLanguage : 'AutoCAD',
+  catchPhrase : 'Where\'d all that dam water go?'
+})
+const awesonePM = new ProjectManager({
+  name : 'Phil',
+  age: 35,
+  location: 'San Francisco',
+  specialty: 'Node',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Keep doing what you\'re doing!',
+  gradClassName: 'Web25',
+  favInstructor: 'Cassidy'
+})
+console.log(passingStudent.stateGrade());
+console.log(awesoneTeacher.studentPerformance(passingStudent));
+console.log(awesonePM.studentPerformance(passingStudent));
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
