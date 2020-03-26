@@ -187,8 +187,8 @@ class Instructor extends Lambdasian{
   demo(subject){
     return `Today we are learning about ${subject}`;
   }
-  grade(student, subject){
-    return `${student.name} receives a perfect score on ${subject}`
+  grade(Student, subject){
+    return `${Student.name} receives a perfect score on ${subject}`
   }
 }
 
@@ -212,9 +212,11 @@ class Student extends Lambdasian{
     super(args)
     this.previousBackground = args.previousBackground;
     this.className = args.className;
-    this.favSubjects = [args.faveSubjects];
+    this.favSubjects = args.favSubjects;// if this information hadn't come in array form, it could have been put into array form by 
+    //saying this.favSubjects = [args.favSubjects];
   }
   listSubjects(){
+    //console.log(`Loving ${this.favSubjects}!`);
     return `Loving ${this.favSubjects}!`;
   }
   PRAssignment(subject){
@@ -238,8 +240,18 @@ class Student extends Lambdasian{
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+  constructor(args){
+    super(args)
+    this.gradClassName = args.gradClassName;
+    this.favInstructor = args.favInstructor;
+  }
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+  }
+  debugsCode(Student, subject){
+    return `${this.name} debugs ${Student.name}'s code on ${subject}`;
+  }
 }
 
 /*
