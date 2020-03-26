@@ -176,6 +176,8 @@ class Lambdasian {
     - Instructor instances have the following methods:
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
+    STRETCH PROBLEM (no tests!)
+      - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
 */
 class Instructor extends Lambdasian{
   constructor(args){
@@ -183,6 +185,17 @@ class Instructor extends Lambdasian{
     this.specialty = args.specialty;
     this.favLanguage = args.favLanguage;
     this.catchPhrase = args.catchPhrase;
+    //console.log(this.speak());
+    //console.log(this.studentPerformance());
+  }
+  studentPerformance(){
+    //console.log((Math.floor(Math.random()*10))%2);
+    if (Math.floor(Math.random()*10)%2){
+      //console.log('add to the score');
+
+    } else {
+      //console.log('subtract from the score');
+    }
   }
   demo(subject){
     return `Today we are learning about ${subject}`;
@@ -206,6 +219,8 @@ class Instructor extends Lambdasian{
         + `listSubjects` a method that returns all of the student's favSubjects in a single string: `Loving HTML, CSS, JS!`.
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
+  STRETCH PROBLEM (no tests!)
+    - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
 */
 class Student extends Lambdasian{
   constructor(args){
@@ -214,6 +229,8 @@ class Student extends Lambdasian{
     this.className = args.className;
     this.favSubjects = args.favSubjects;// if this information hadn't come in array form, it could have been put into array form by 
     //saying this.favSubjects = [args.favSubjects];
+    this.grade = args.grade;
+    //console.log(this.grade);
   }
   listSubjects(){
     //console.log(`Loving ${this.favSubjects}!`);
@@ -239,6 +256,8 @@ class Student extends Lambdasian{
     - ProjectManager instances have the following methods:
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
+    STRETCH PROBLEM (no tests!)
+      - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
 */
 class ProjectManager extends Instructor{
   constructor(args){
@@ -262,6 +281,18 @@ class ProjectManager extends Instructor{
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
+
+
+const passingStudent = new Student({
+  name : 'James',
+  age : 23,
+  location : 'Arkansas',
+  previousBackground : 'did an internship',
+  className : "Fluid Dynamics",
+  favSubjects : ['Python', 'Statistics', 'Newtonian Physics'], 
+  grade : 85
+})
+
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
